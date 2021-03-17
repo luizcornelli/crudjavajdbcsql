@@ -6,5 +6,22 @@
 	<groupId>crud-java-jdbc-sql</groupId>
 	<artifactId>crud-java-jdbc-sql</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	
+	<name>crud-java-jdbc-sql</name>
+	<url>http://maven.apache.org</url>
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	
+		
+	<dependencies>
+		<dependency>
+		    <groupId>org.postgresql</groupId>
+		    <artifactId>postgresql</artifactId>
+		    <version>42.2.19</version>
+		</dependency>
+	</dependencies>
 	
 </project>
