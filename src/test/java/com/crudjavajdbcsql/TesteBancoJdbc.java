@@ -77,4 +77,12 @@ public class TesteBancoJdbc {
 			e.printStackTrace();
 		}
 	}
+	
+	@Test
+	public void initDeletar() {
+		
+		UsercrudjdbcsqlDAO dao = new UsercrudjdbcsqlDAO();
+		dao.deletar(1);
+		
+	}
 }

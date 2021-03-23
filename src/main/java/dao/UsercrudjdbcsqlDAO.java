@@ -109,4 +109,24 @@ public class UsercrudjdbcsqlDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	public void deletar(Integer id) {
+		
+		try {
+			
+			String delete = "DELETE FROM usercrudjdbcsql WHERE id = " + id; 
+			PreparedStatement preparedStatement = connection.prepareStatement(delete);
+			preparedStatement.execute(); 
+			
+			connection.commit();
+			
+		} catch (Exception e) {
+			try {
+				connection.rollback();
+			} catch (SQLException e2) {
+				e2.printStackTrace();
+			}
+			e.printStackTrace();
+		}
+	}
 }
