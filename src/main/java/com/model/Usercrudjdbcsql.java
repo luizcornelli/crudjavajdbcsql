@@ -30,4 +30,9 @@ public class Usercrudjdbcsql {
 		this.email = email;
 	}
 
+	@Override
+	public String toString() {
+		return "Usercrudjdbcsql [id=" + id + ", nome=" + nome + ", email=" + email + "]";
+	}
+	
 }

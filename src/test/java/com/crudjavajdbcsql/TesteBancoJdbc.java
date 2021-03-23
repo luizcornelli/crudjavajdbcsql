@@ -1,8 +1,11 @@
 package com.crudjavajdbcsql;
 
+
+import java.sql.SQLException;
+import java.util.List;
+
 import org.junit.Test;
 
-import com.conexaojdbc.SingleConnection;
 import com.model.Usercrudjdbcsql;
 
 import dao.UsercrudjdbcsqlDAO;
@@ -20,5 +23,25 @@ public class TesteBancoJdbc {
 		user.setEmail("paulo@gmail.com");
 		
 		usercrudjdbcsqlDAO.salvar(user);
+	}
+	
+	@Test
+	public void initListar() {
+		
+		try {
+			
+			UsercrudjdbcsqlDAO dao = new UsercrudjdbcsqlDAO();
+			
+			List<Usercrudjdbcsql> users;
+			
+			users = dao.listar();
+			for (Usercrudjdbcsql user : users) {
+				
+				System.out.println(user.toString());
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 
+		
 	}
 }
