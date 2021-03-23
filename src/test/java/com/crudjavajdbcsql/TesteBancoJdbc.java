@@ -42,6 +42,21 @@ public class TesteBancoJdbc {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} 
+	}
+	
+	@Test
+	public void buscar() {
 		
+		try {
+			
+			UsercrudjdbcsqlDAO dao = new UsercrudjdbcsqlDAO();
+			
+			Usercrudjdbcsql user = dao.buscar(4);
+			
+			System.out.println(user.toString());
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

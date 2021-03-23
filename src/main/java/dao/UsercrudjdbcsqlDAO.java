@@ -68,4 +68,22 @@ public class UsercrudjdbcsqlDAO {
 		}
 		return list;
 	}
+	
+	public Usercrudjdbcsql buscar(Integer id) throws SQLException {
+
+		Usercrudjdbcsql user = new Usercrudjdbcsql();
+		String sql = "SELECT * FROM usercrudjdbcsql WHERE id = " + id ;
+		PreparedStatement preparedStatement;
+		preparedStatement = connection.prepareStatement(sql);
+
+		ResultSet result = preparedStatement.executeQuery();
+		while (result.next()) {
+
+			user.setId(result.getInt(("id")));
+			user.setEmail(result.getString("email"));
+			user.setNome(result.getString("nome"));
+
+		}
+		return user;
+	}
 }
