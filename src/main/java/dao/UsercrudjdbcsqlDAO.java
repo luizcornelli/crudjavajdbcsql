@@ -23,13 +23,12 @@ public class UsercrudjdbcsqlDAO {
 
 		try {
 
-			String sql = "INSERT INTO usercrudjdbcsql(id, nome, email) VALUES (?, ?, ?)";
+			String sql = "INSERT INTO usercrudjdbcsql(nome, email) VALUES (?, ?)";
 			PreparedStatement insert = connection.prepareStatement(sql); // preparando a declaração do nosso comando de
 																			// insert
 
-			insert.setInt(1, pUser.getId());
-			insert.setString(2, pUser.getNome());
-			insert.setString(3, pUser.getEmail());
+			insert.setString(1, pUser.getNome());
+			insert.setString(2, pUser.getEmail());
 
 			insert.execute();
 

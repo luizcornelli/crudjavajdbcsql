@@ -18,7 +18,6 @@ public class TesteBancoJdbc {
 		UsercrudjdbcsqlDAO usercrudjdbcsqlDAO = new UsercrudjdbcsqlDAO();
 		Usercrudjdbcsql user = new Usercrudjdbcsql();
 		
-		user.setId(4);
 		user.setNome("Paulo");
 		user.setEmail("paulo@gmail.com");
 		
