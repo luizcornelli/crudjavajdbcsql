@@ -86,4 +86,28 @@ public class UsercrudjdbcsqlDAO {
 		}
 		return user;
 	}
+	
+	public void atualizar(Usercrudjdbcsql user) {
+		
+		try {
+			
+			String update = "UPDATE usercrudjdbcsql SET nome = ? WHERE id = " + user.getId();
+			
+			PreparedStatement preparedStatement = connection.prepareStatement(update);
+			preparedStatement.setString(1, user.getNome()); 
+			
+			preparedStatement.execute();
+			connection.commit();
+			
+		} catch (Exception e) {
+			
+			try {
+				connection.rollback();
+			} catch (SQLException e2) {
+				e2.printStackTrace();
+			}
+			
+			e.printStackTrace();
+		}
+	}
 }

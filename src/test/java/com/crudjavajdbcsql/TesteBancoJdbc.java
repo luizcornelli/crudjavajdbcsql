@@ -59,4 +59,23 @@ public class TesteBancoJdbc {
 			e.printStackTrace();
 		}
 	}
+	
+	@Test 
+	public void atualizar() {
+		
+		try {
+			UsercrudjdbcsqlDAO dao = new UsercrudjdbcsqlDAO();
+			
+			Usercrudjdbcsql user;
+			
+			user = dao.buscar(4);
+			user.setNome("Paulo atualizado");
+			
+			dao.atualizar(user);
+
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+	}
 }
