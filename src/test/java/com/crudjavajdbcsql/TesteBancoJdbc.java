@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.junit.Test;
 
+import com.model.BeanUserFone;
 import com.model.Telefone;
 import com.model.Usercrudjdbcsql;
 
@@ -98,5 +99,17 @@ public class TesteBancoJdbc {
 		telefone.setUsuario(3);
 		
 		dao.salvarTelefone(telefone);
+	}
+	
+	@Test
+	public void testCarregaFonesUser() {
+		
+		UsercrudjdbcsqlDAO dao = new UsercrudjdbcsqlDAO();
+		List<BeanUserFone> beanUserFones = dao.listaUserFone(22);
+		
+		for (BeanUserFone beanUserFone : beanUserFones) {
+			
+			System.out.println(beanUserFone);
+		}
 	}
 }

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.conexaojdbc.SingleConnection;
+import com.model.BeanUserFone;
 import com.model.Telefone;
 import com.model.Usercrudjdbcsql;
 
@@ -156,5 +157,33 @@ public class UsercrudjdbcsqlDAO {
 		
 			e.printStackTrace();
 		}
+	}
+	
+	public List<BeanUserFone> listaUserFone(Integer idUser){
+		
+		List<BeanUserFone> listUserFone = new ArrayList<BeanUserFone>();
+		
+		String sql = "SELECT nome, numero, email FROM telefone fone "
+				+ "INNER JOIN usercrudjdbcsql userp ON fone.usuario_pessoa = userp.id " 
+                + "where userp.id = "+idUser;
+		try {
+		
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			
+			while(resultSet.next()) {
+				
+				BeanUserFone beanUserFone = new BeanUserFone();
+				beanUserFone.setEmail(resultSet.getString("email"));
+				beanUserFone.setNome(resultSet.getString("nome"));
+				beanUserFone.setNumero(resultSet.getString("numero"));
+				
+				listUserFone.add(beanUserFone);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return listUserFone;
 	}
 }
