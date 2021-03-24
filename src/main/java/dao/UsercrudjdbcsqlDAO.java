@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.conexaojdbc.SingleConnection;
+import com.model.Telefone;
 import com.model.Usercrudjdbcsql;
 
 public class UsercrudjdbcsqlDAO {
@@ -126,6 +127,33 @@ public class UsercrudjdbcsqlDAO {
 			} catch (SQLException e2) {
 				e2.printStackTrace();
 			}
+			e.printStackTrace();
+		}
+	}
+	
+	public void salvarTelefone(Telefone telefone) {
+		
+		try {
+			
+			String insert = "INSERT INTO telefone(tipo, usuario_pessoa, numero) VALUES(?, ?, ?)"; 
+			
+			PreparedStatement preparedStatement = connection.prepareStatement(insert);
+			
+			preparedStatement.setString(1, telefone.getTipo());
+			preparedStatement.setInt(2, telefone.getUsuario());
+			preparedStatement.setString(3, telefone.getNumero());
+			
+			preparedStatement.execute();
+			
+			connection.commit();
+			
+		} catch (SQLException e) {
+			try {
+				connection.rollback();
+			} catch (SQLException e2) {
+				e2.printStackTrace();
+			}
+		
 			e.printStackTrace();
 		}
 	}

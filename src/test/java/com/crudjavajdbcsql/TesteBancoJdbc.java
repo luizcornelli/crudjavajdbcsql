@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.junit.Test;
 
+import com.model.Telefone;
 import com.model.Usercrudjdbcsql;
 
 import dao.UsercrudjdbcsqlDAO;
@@ -84,5 +85,18 @@ public class TesteBancoJdbc {
 		UsercrudjdbcsqlDAO dao = new UsercrudjdbcsqlDAO();
 		dao.deletar(1);
 		
+	}
+	
+	@Test
+	public void insertTelefone() {
+			
+		UsercrudjdbcsqlDAO dao = new UsercrudjdbcsqlDAO();
+		
+		Telefone telefone = new Telefone();
+		telefone.setNumero("(081) 88889-9999");
+		telefone.setTipo("Celular");
+		telefone.setUsuario(3);
+		
+		dao.salvarTelefone(telefone);
 	}
 }
