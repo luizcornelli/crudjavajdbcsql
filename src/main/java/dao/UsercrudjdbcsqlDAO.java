@@ -186,4 +186,31 @@ public class UsercrudjdbcsqlDAO {
 		}
 		return listUserFone;
 	}
+	
+	public void deleteFones(Integer idUser) {
+
+		try {
+
+			String sqlFone = "DELETE FROM telefone WHERE usuario_pessoa = " + idUser;
+			String sqlUser = "DELETE FROM usercrudjdbcsql where id = " + idUser;
+
+			PreparedStatement preparedStatement = connection.prepareStatement(sqlFone);
+			preparedStatement.executeUpdate();
+			
+			connection.commit();
+			
+			preparedStatement = connection.prepareStatement(sqlUser);
+			preparedStatement.executeUpdate();
+			
+			connection.commit();
+			
+		} catch (Exception e) {
+			try {
+				connection.rollback();
+			} catch (SQLException e2) {
+				e2.printStackTrace();
+			}
+			e.printStackTrace();
+		}
+	}
 }

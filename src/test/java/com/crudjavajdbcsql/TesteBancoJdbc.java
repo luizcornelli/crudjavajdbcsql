@@ -112,4 +112,11 @@ public class TesteBancoJdbc {
 			System.out.println(beanUserFone);
 		}
 	}
+	
+	@Test
+	public void testeDeleteUserFone() {
+		
+		UsercrudjdbcsqlDAO dao = new UsercrudjdbcsqlDAO();
+		dao.deleteFones(3);
+	}
 }
